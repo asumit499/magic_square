@@ -1,0 +1,40 @@
+def magic_square(n):
+    msq = [[0 for i in range(n)] for j in range(n)]
+    
+    r = n//2  #row
+    c = n-1   #column
+    num = 1
+    while num <= n**2:
+        if r == -1 and c == n:
+            r = 0
+            c = n-2
+        if r == -1:
+            r = n-1
+        if c == n:
+            c = 0
+        
+        
+        if msq[r][c] != 0:
+            c-=2
+            r+=1
+            if r == -1 and c == n:
+                r = 0
+                c = n-2
+            if r == -1:
+                r = n-1
+            if c == n:
+                c = 0
+            
+            
+        msq[r][c]=num
+        num+=1
+        r -=1
+        c+=1
+    for i in msq:
+        for j in i:
+            print(j,end=" ")
+        print()
+    
+      
+n = int(input())
+magic_square(n)
